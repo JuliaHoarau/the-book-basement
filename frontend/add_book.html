@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="./js/add_book.js" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $("#nav-bar").load("nav.html");
+        });
+    </script>
+</head>
+
+<body>
+    <div id="nav-bar"></div>
+    <h1>Add the book's details</h1>
+    <form action="" id="add-book-form" class="book-form">
+
+        <div class="form-field">
+            <label for="bookTitle">Book title</label>
+            <input type="text" id="bookTitle" name="bookTitle">
+        </div>
+
+        <div class="form-field">
+            <label for="originalTitle">Original Title</label>
+            <input type="text" id="originalTitle" name="originalTitle">
+        </div>
+
+        <div class="form-field">
+            <label for="yearofPublication">Year Published</label>
+            <input type="text" id="yearofPublication" name="yearofPublication">
+        </div>
+
+        <div class="form-field">
+            <label for="genre">Genre</label>
+            <input type="text" id="genre" name="genre">
+        </div>
+
+        <div class="form-field">
+            <label for="millionsSold">Million Copies Sold</label>
+            <input type="text" id="millionsSold" name="millionsSold">
+        </div>
+
+        <div class="form-field">
+            <label for="languageWritten">Original Language</label>
+            <input type="text" id="languageWritten" name="languageWritten">
+        </div>
+
+        <div class="form-field">
+            <label for="authorID">Author ID</label>
+            <input type="text" id="authorID" name="authorID">
+        </div>
+
+
+
+        <div class="form-field">
+            <input type="button" value="Add Book" onclick="postAddBook()">
+        </div>
+    </form>
+</body>
+
+</html>

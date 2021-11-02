@@ -1,0 +1,398 @@
+@import url("https://use.typekit.net/lap6aqy.css");
+
+:root {
+    --green: #225560;
+    --red: #530000;
+    --blue: #EFF3F9;
+    --tan: #fffcfa;
+    --tan2: #fff9ed;
+    --grain: #d7cec7;
+    --yellow: #f8be24;
+}
+
+html {
+    height: 100%;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'semplicitapro', 'sans-serif';
+    margin: 0;
+    padding: 0;
+    background-color: var(--tan2);
+}
+
+header {
+    background-color: var(--blue);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    /* box-shadow: 0 6px 12px -2px rgba(50, 50, 93, 0.25), 0 3px 7px -3px rgba(0, 0, 0, 0.3); */
+    z-index: 999;
+}
+
+.header-text {
+    width: 50%;
+    margin: .8em auto 0;
+}
+
+.header-text>h3 {
+    letter-spacing: 3px;
+    text-align: center;
+    font-family: 'mrs-eaves', 'serif';
+    font-weight: 600;
+    font-size: 28px;
+    color: var(--red);
+}
+
+
+nav {
+    border-top: 2px solid var(--green);
+    width: 50%;
+    margin: 0 auto;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: row;
+    margin: 10px 0;
+    text-decoration: none;
+    justify-content: space-around;
+}
+
+nav li {
+
+    display: flex;
+    list-style: none;
+    text-decoration: none;
+    flex-grow: 1 1;
+}
+
+nav li a {
+    text-decoration: none;
+    font-family: 'semplicitapro', 'sans-serif';
+    font-weight: 500;
+    font-style: normal;
+    font-size: 12px;
+    border-bottom: 1px solid transparent;
+    transition: 50ms ease-in;
+    color: var(--red)
+}
+
+nav li a:hover {
+
+    color: var(--green);
+    /* border-bottom: 2px solid var(--green); */
+}
+
+
+.home-h1 {
+    font-size: 40px;
+    margin-top: 50px;
+}
+
+.home-p {
+    text-align: center;
+    margin: 40px;
+}
+
+
+#app {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 10px;
+}
+
+.books {
+
+    border-radius: 20px;
+    flex: 0 1 24%;
+    padding: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+    margin: 30px 10px;
+    max-width: 250px;
+    min-width: 200px;
+    min-height: 350px;
+    background-color: white;
+}
+
+
+.head {
+    padding: 30px;
+}
+
+.book-btn {
+    padding: 20px;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: #bc4b51;
+    border: none;
+}
+
+
+.all-users {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    margin-top: 90px;
+    min-height: 100vh;
+}
+
+.form-container {
+    max-width: 500px;
+}
+
+
+.book-form {
+    border-radius: 20px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.24);
+    background-color: #fff;
+    padding: 20px;
+    width: 100%;
+
+
+}
+
+.form-container h2 {
+    font-family: 'Roboto';
+    text-align: center;
+
+
+}
+
+
+input[type=text],
+input[type=email],
+input[type=password] {
+    width: 100%;
+    padding: 5px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family: 'Poppins';
+}
+
+.btn-container {
+    text-align: center;
+}
+
+input[type=button] {
+    width: 50%;
+    background-color: var(--red);
+    color: white;
+    padding: 14px 20px;
+    margin: 8px auto;
+    border: none;
+    border-radius: 10px;
+
+}
+
+.table-container {
+    margin-top: 30px;
+}
+
+.table {
+    border-collapse: collapse;
+    margin: 10px 0;
+    font-size: 0.9em;
+    /* border: 3px solid var(--red); */
+    font-family: 'semplicitapro', 'sans-serif';
+    width: 80%;
+
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.table thead tr {
+    background-color: var(--green);
+    text-align: left;
+    color: #fff;
+}
+
+.user-main {}
+
+.table th,
+.table td {
+    padding: 12px 15px;
+    font-weight: 300;
+}
+
+.table tbody tr {
+    background-color: var(--tan);
+
+}
+
+.table tbody tr:nth-of-type(even) {
+    background-color: var(--blue);
+}
+
+.table tbody tr:last-of-type {
+    border-bottom: 2px solid var(--green);
+}
+
+.user-section h2 {
+    margin-top: 20px;
+}
+
+.user-section {
+    display: flex;
+    flex-direction: column;
+    margin-left: 5%;
+}
+
+/* heading container  */
+
+.heading-container {
+    margin-top: 50px;
+    border: 4px solid var(--red);
+    display: flex;
+    align-items: center;
+    flex: 33% 1 1;
+    width: 30%;
+    align-items: center;
+}
+
+.heading-head>p {
+    font-family: 'semplicitapro', 'serif';
+    font-style: italic;
+    font-size: 16px;
+}
+
+.heading-icon {
+    margin: 0;
+    border-right: 2px solid var(--red);
+}
+
+.heading-icon>img {
+    height: 60px;
+
+}
+
+.heading-head {
+    color: var(--red);
+    padding: .5em;
+    max-width: 300px;
+    flex: 1;
+    font-size: 25px;
+    font-family: 'mrs-eaves bold', 'serif';
+
+}
+
+
+/* heading container end */
+
+.add-btn {
+    padding: 8px 10px;
+    text-align: center;
+    background-color: var(--green);
+    border: none;
+    color: #fff;
+    margin-top: 30px;
+    font-family: 'semplicitapro', 'sans-serif';
+}
+
+.add-btn:hover {
+    padding: 8px 10px;
+    text-align: center;
+    background-color: var(--red);
+    border: none;
+    color: #fff;
+    margin-top: 30px;
+    font-family: 'semplicitapro', 'sans-serif';
+}
+
+/* hero */
+
+
+.hero-image {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)), url("../img/books-hero.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    height: 500px;
+    z-index: -999;
+}
+
+
+
+
+.hero-contents {
+    padding-top: 120px;
+    color: white;
+    text-align: center;
+
+}
+
+
+.hero-contents>p {
+    padding-top: 40px;
+    font-size: 20px;
+}
+
+
+.home-h2 h1 {
+    font-family: 'study', 'sans-serif';
+    font-style: italic;
+    font-weight: 600;
+    font-size: 50px;
+
+}
+
+.container {
+    position: relative;
+    width: 240px;
+    height: 400px;
+    margin: 25px 30px;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: var(--red);
+}
+
+.container:hover .overlay {
+    opacity: 1;
+}
+
+.text {
+    width: 100%;
+    color: white;
+    font-size: 16px;
+    position: absolute;
+    top: 25%;
+    text-align: center;
+}
+
+.text>h2 {
+    font-size: 20px;
+}
+
+/* forms */
+.book-form {
+    margin: 100px auto;
+    width: 50%;

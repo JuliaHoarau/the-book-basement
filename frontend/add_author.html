@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="./js/add_author.js" defer></script>
+</head>
+
+<body>
+
+    <h1>Add the author's details</h1>
+    <form action="" id="add-author-form" class="book-form">
+
+        <div class="form-field">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name">
+        </div>
+
+        <div class="form-field">
+            <label for="surname">Surname</label>
+            <input type="text" id="surname" name="surname">
+        </div>
+
+        <div class="form-field">
+            <label for="nationality">Nationality</label>
+            <input type="text" id="nationality" name="nationality">
+        </div>
+
+        <div class="form-field">
+            <label for="birthYear">Birth Year</label>
+            <input type="text" id="birthYear" name="birthYear">
+        </div>
+
+        <div class="form-field">
+            <label for="deathYear">Death Year</label>
+            <input type="text" id="deathYear" name="deathYear">
+        </div>
+
+        <div class="form-field">
+            <input type="button" value="Add Author" onclick="postAddAuthor()">
+        </div>
+    </form>
+</body>
+
+</html>

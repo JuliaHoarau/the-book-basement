@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create User</title>
+    <script src="js/create_user.js" defer></script>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $("#nav-bar").load("nav.html");
+        });
+    </script>
+</head>
+
+<body>
+    <div id="nav-bar"></div>
+
+    <main>
+        <form id="create-user-form" class="book-form">
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName">
+
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName">
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email">
+
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username">
+
+            <label for="password">password:</label>
+            <input type="password" id="password" name="password">
+
+            <label for="accessRights">Access Rights:</label>
+            <input type="text" id="accessRights" name="accessRights">
+
+            <input type="button" value="Create User" onclick="postCreateUser()">
+
+        </form>
+    </main>
+</body>
+
+</html>

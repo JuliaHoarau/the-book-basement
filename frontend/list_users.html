@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $("#nav-bar").load("nav.html");
+        });
+    </script>
+</head>
+
+<body>
+
+    <div id="nav-bar"></div>
+
+    <main class="user-main">
+        <section class="user-section">
+
+            <div class="heading-container">
+                <div class="heading-icon">
+                    <img src="img/user-icon.svg" alt="">
+                </div>
+                <div class="heading-head">
+                    <h4>USER MANAGEMENT</h4>
+                    <p>Add, edit and delete users</p>
+                </div>
+            </div>
+
+
+            <div class="table-container">
+                <a href="/create_user.html">
+                    <button class="add-btn">Add User</button>
+                </a>
+                <table class="table" id="user-list">
+                    <thead>
+                        <tr>
+                            <th>User ID</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>email</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody id="data">
+
+                    </tbody>
+                </table>
+
+            </div>
+            <!-- <div class="usr-img-container">
+                <img src="./img/user-svg.svg" alt="">
+            </div> -->
+            <img src="" alt="">
+        </section>
+    </main>
+    <script src="js/list-users.js" defer></script>
+</body>
+
+</html>
