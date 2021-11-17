@@ -22,6 +22,6 @@ module.exports.deleteUser = (userID) => {
     return db.query('DELETE FROM users WHERE userID =?', [userID])
 }
 
-module.exports.login = (email, password) => {
-    db.query('SELECT email, password from users where email = ? and password = ?', [email, password])
+module.exports.getUserByUsername = (username) => {
+    return db.query('SELECT * FROM users where username = ?', [username])
 }

@@ -22,7 +22,7 @@
     <form action="" id="add-book-form" class="book-form">
 
         <div class="form-field">
-            <label for="bookTitle">Book title</label>
+            <label for="bookTitle">Book Title</label>
             <input type="text" id="bookTitle" name="bookTitle">
         </div>
 
@@ -52,11 +52,22 @@
         </div>
 
         <div class="form-field">
-            <label for="authorID">Author ID</label>
-            <input type="text" id="authorID" name="authorID">
+            <label for="cover-image">Cover Image:</label>
+            <select name="coverImagePath" id="cover-image">
+                <option value="">Select...</option>
+                <option value="img/fantasy.png">Fantasy</option>
+                <option value="img/literature.png">Literature</option>
+                <option value="img/mystery.png">Mystery</option>
+                <option value="img/scifi.png">Sci-Fi</option>
+            </select>
         </div>
 
-
+        <div class="form-field">
+            <label for="author">Author:</label>
+            <select name="authorID" id="author">
+                <option value="">Select...</option>
+            </select>
+        </div>
 
         <div class="form-field">
             <input type="button" value="Add Book" onclick="postAddBook()">

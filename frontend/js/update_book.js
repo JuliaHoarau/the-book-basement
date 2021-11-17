@@ -17,19 +17,22 @@ if (bookID) {
         document.getElementById('genre').value = book.genre
         document.getElementById('millionsSold').value = book.millionsSold
         document.getElementById('languageWritten').value = book.languageWritten
+        document.getElementById('cover-image').value = book.coverImagePath
+        document.getElementById('author').value = book.authorID
     })
 }
 
-// Post back updated data
 
+//// Post back updated data!
 function postUpdateBook() {
-    //Get access to the update book form
-    let updateBookForm = document.getElementById('update-book-form')
-    // convert the form data into a JSON string
-    let formDataJSON = JSON.stringify(Object.fromEntries(new FormData(updateBookForm)))
+    // Get access to the update user form
+    let updateUserForm = document.getElementById("update-book-form")
 
-    // post the JSON data to the API
-    fetch('api/books/update', {
+    // Convert the form data into a JSON string
+    let formDataJSON = JSON.stringify(Object.fromEntries(new FormData(updateUserForm)))
+
+    // Post the JSON data to the API
+    fetch("api/books/update", {
         method: "POST",
         headers: {'Content-Type': 'application/json'},
         body: formDataJSON
@@ -37,8 +40,36 @@ function postUpdateBook() {
     .then(res => res.json())
     .then(response => {
         alert(response)
-        //redirect back to user list
-        window.location.href = 'list_books.html'
+        // Redirect back to user list
+        window.location.href = "list_books.html"
     })
 }
 
+// Create a table of existing book covers and do the same thing.
+fetch("/api/authors")
+    .then(res => res.json())
+    .then((authors) => {
+        let authorSelect = document.getElementById("author")
+
+        for (let author of authors) {
+            authorSelect.innerHTML 
+            += `<option value="${author.authorID}">
+                ${author.name + " " + author.surname}
+            </option>`
+        }
+
+    })
+
+    // fetch("/api/index")
+    // .then(res => res.json())
+    // .then((covers) => {
+    //     let bookSelect = document.getElementById("cover-image")
+
+    //     for (let cover of covers) {
+    //         bookSelect.innerHTML 
+    //         += `<option value="${cover.coverImagePath}">
+    //             ${cover.coverImagePath}
+    //         </option>`
+    //     }
+
+    // })

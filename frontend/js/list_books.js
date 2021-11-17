@@ -25,6 +25,7 @@ fetch('/api/index')
         data.forEach((b) => {
             temp += `<th>${b.bookID}</th>`
             temp += `<td>${b.bookTitle}</td>`
+            temp += `<td>${b.authorID}</td>`
             temp += `<td><a href="update_book.html?id=${b.bookID}">Edit</a></td>`
             temp += `<td><a href="delete_book.html?id=${b.bookID}">Delete</a></td></tr>`
         })

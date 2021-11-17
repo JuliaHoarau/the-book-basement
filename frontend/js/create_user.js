@@ -14,7 +14,7 @@ function postCreateUser() {
     .then(res => res.json())
     .then(res => {
         console.log('User request sent!')
-        window.location.href = '/list_users.html'
+        window.location.href = 'list_users.html'
 
     })
     .catch(err => {

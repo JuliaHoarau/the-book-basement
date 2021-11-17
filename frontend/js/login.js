@@ -1,18 +1,23 @@
-function postLogin() {
-    let loginForm = document.getElementById('login-form')
+function postLoginUser() {
+    let loginUserForm = document.getElementById('login-form')
 
-    let formDataJSON = JSON.stringify(Object.fromEntries(new FormData(loginForm)))
+    let formDataJSON = JSON.stringify(Object.fromEntries(new FormData(loginUserForm)))
     console.log(formDataJSON)
 
-    fetch('/api/login', {
-        method: "POST",
-        'Content-Type': 'application/json',
+    // post the form data to the backend
+    fetch('/api/users/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
         body: formDataJSON
     })
-    .then((response) => response.json())
-    .then((result) => {
-        console.log('user match')
-    }).catch(err => {
-        console.log("login request failed")
+    .then(res => res.json())
+    .then(res => {
+        alert(res)
+        window.location.href = 'index.html'
+    })
+    .catch(error => {
+        console.log('user login failed')
     })
 }

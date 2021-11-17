@@ -10,47 +10,34 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/style.css">
     <script src="js/login.js"></script>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $("#nav-bar").load("nav.html");
+        });
+    </script>
 
 </head>
 
 <body>
 
     <body>
+        <div id="nav-bar"></div>
 
-        <nav>
-            <h3>The Book Basement</h3>
-            <ul>
-                <li><a href="./index.html">Home</a></li>
-                <li><a href="/login">Login</a></li>
-                <li><a href="/add_book.html">Add Book</a></li>
-            </ul>
-        </nav>
-        <div class="container mt-4">
-            <div class="card">
-                <div class="card-header">
-                    Login
-                </div>
-                <div class="card-body">
-                    <form id="login-form">
+        <main>
+            <form id="login-form" class="book-form">
 
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Email Address</label>
-                            <input type="email" class="form-control" id="email" name="email">
-                        </div>
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username">
 
-                        <div class="mb-3">
-                            <label for="password" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="password" name="password">
-                        </div>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password">
 
 
-                        <input type="button" value="Login" onclick="postLogin()">
-                    </form>
-                </div>
-            </div>
+                <input type="button" value="Login" onclick="postLoginUser()">
 
-        </div>
+            </form>
+        </main>
     </body>
 
 

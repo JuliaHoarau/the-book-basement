@@ -10,8 +10,9 @@ fetch('/api/users')
         data.forEach((u) => {
             temp += `<th>${u.userID}</th>`
             temp += `<td>${u.firstName}</td>`
-            temp += `<td>${u.lastName}</td>`
+            temp += `<td>${u.username}</td>`
             temp += `<td>${u.email}</td>`
+            temp += `<td>${u.accessRights}</td>`
             temp += `<td><a href="update_user.html?id=${u.userID}">Edit</a></td>`
             temp += `<td><a href="delete_user.html?id=${u.userID}">Delete</a></td></tr>`
         })

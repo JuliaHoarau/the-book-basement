@@ -1,8 +1,9 @@
 const express = require('express')
 const router = express.Router()
-const bcryptjs = require('bcryptjs')
-const jwt = require('jsonwebtoken')
+const bcrypt = require('bcrypt')
+const validator = require('validator')
 const userModel = require('../models/userModel')
+const { reset } = require('nodemon')
 
 
 
@@ -18,15 +19,31 @@ router.get('/users', (req, res) => {
 })
 
 router.post('/users/create', (req, res) => {
+
+   // Only allow admins to use this endpoint 
+    if (req.session.user.accessRights != "admin") {
+        // send back an error message
+        res.status(403).json('admin only action')
+        // stop response handler here
+        return;
+    }
     let user = req.body
 
+    //only allow valid emails 
+    if (validator.isEmail(user.email) == false) {
+        res.status(300).json('invalid email')
+        return;
+    }
+    // has the password before inserting the db
+    let hashedPassword = bcrypt.hashSync(user.password, 6)
+
     userModel.createUser(
-        user.firstName,
-        user.lastName,
-        user.email,
-        user.username,
-        user.password,
-        user.accessRights
+        validator.escape(user.firstName),
+        validator.escape(user.lastName),
+        validator.escape(user.email),
+        validator.escape(user.username),
+        hashedPassword, // now storing the hashed password
+        validator.escape(user.accessRights)
     )
     .then((result) => {
         res.status(200).json('user created with id')
@@ -57,15 +74,21 @@ router.post('/users/update', (req, res) => {
     // thre req.body represents the posted json data
     let user = req.body
 
+    // if the password does not start with a $, then hash it
+    let hashedPassword = user.password
+    if (!user.password.startsWith('$2b$')) {
+        hashedPassword = bcrypt.hashSync(user.password, 6)
+    }
+
     // Each of the names below reference the "name" attribute in the form
     userModel.updateUser(
-        user.userID,
-        user.firstName,
-        user.lastName,
-        user.email,
-        user.username,
-        user.password,
-        user.accessRights
+        validator.escape(user.userID),
+        validator.escape(user.firstName),
+        validator.escape(user.lastName),
+        validator.escape(user.email),
+        validator.escape(user.username),
+        hashedPassword,
+        validator.escape(user.accessRights)
     )
     .then((result) => {
         if (result.affectedRows > 0) {
@@ -80,35 +103,68 @@ router.post('/users/update', (req, res) => {
     })
 })
 
-router.post('/users/delete', (req, res) => {
+router.post("/users/delete", (req, res) => {
     // Access the user id from the body of the request
-    let userID = req.body.userID
+    let userId = req.body.userId
 
-    // ask the model to delete the user with userID
-    userModel.deleteUser(userID)
+    // Ask the model to delete the user with userId
+    userModel.deleteUser(userId)
         .then((result) => {
-            if (result.length > 0) {
-                res.status(200).json(result[0])
-            } 
+            if (result.affectedRows > 0) {
+                res.status(200).json("user deleted")
+            } else {
+                res.status(404).json("user not found")
+            }
         })
         .catch((error) => {
             console.log(error)
-            res.status(500).json('failed to delete user - query error')
+            res.status(500).json("failed to delete user - query error")
         })
 })
 
-router.post('/login', (req, res) => {
-    let email = req.body.email
-    let password = req.body.password
+router.post('/users/login', (req, res) => {
+// Get the login information
+    let login = req.body
 
-    userModel.login(email, password)
-    .then((result) => {
-        res.status(200).json('user created with id')
+// Find the user with a matching username
+    userModel.getUserByUsername(login.username)
+    .then((results) => {
+        // did we find a user with matching username?
+        if (results.length > 0) {
+            // Get the found user 
+            let user = results[0]
+
+            // verify the users password
+            if (bcrypt.compareSync(login.password, user.password)) {
+                // this user is now authenticated 
+
+                // set up the session
+                req.session.user = {
+                    userID: user.userID,
+                    accessRights: user.accessRights,
+                }
+                res.status(200).json('login successful')
+            } else {
+                // runs if the passwords do not match
+                res.status(401).json('login failed')
+            }
+        }
     })
     .catch((error) => {
-        res.status(500).json('query error- failed to create user')
+        console.log(error)
+        res.status(500).json('failed to login - query error')
     })
+
 })
+
+router.post('users/logout', (req, res) => {
+// Destroy the session
+    req.session.destroy()
+    res.status(200).json('logged out')
+
+})
+
+
 
 
 
